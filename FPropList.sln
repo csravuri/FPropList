@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPropList", "FPropList\FPropList.csproj", "{94E63FDE-99A6-40ED-AB9C-08A3820143EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94E63FDE-99A6-40ED-AB9C-08A3820143EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E63FDE-99A6-40ED-AB9C-08A3820143EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E63FDE-99A6-40ED-AB9C-08A3820143EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E63FDE-99A6-40ED-AB9C-08A3820143EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13EAE150-D45D-4BFE-8D15-C9212F73340D}
+	EndGlobalSection
+EndGlobal

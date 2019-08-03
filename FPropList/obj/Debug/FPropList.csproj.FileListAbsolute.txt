@@ -1,0 +1,15 @@
+G:\Applications\cSharp\FPropList\FPropList\bin\Debug\FPropList.exe.config
+G:\Applications\cSharp\FPropList\FPropList\bin\Debug\FPropList.exe
+G:\Applications\cSharp\FPropList\FPropList\bin\Debug\FPropList.pdb
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csprojAssemblyReference.cache
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\MainWindow.g.cs
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\App.g.cs
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList_MarkupCompile.cache
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList_MarkupCompile.lref
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\MainWindow.baml
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.g.resources
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.Properties.Resources.resources
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.GenerateResource.cache
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.CoreCompileInputs.cache
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.exe
+G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.pdb
