@@ -14,10 +14,37 @@
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock>Current Folder</TextBlock>
-                <TextBox x:Name="txtFolderPath"></TextBox>
-                <Button x:Name="btnBrowse">Browse</Button>
+                <TextBlock Grid.Column="0">Current Folder</TextBlock>
+                <TextBox Grid.Column="1" x:Name="txtFolderPath"></TextBox>
+                <Button Grid.Column="2" x:Name="btnBrowse" Click="BtnBrowse_Click">Browse</Button>
 
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0">Item Name</Label>
+                <Label Grid.Column="1" Grid.Row="0">Size</Label>
+                <Label Grid.Column="2" Grid.Row="0">Modified Date</Label>
+                <ListView x:Name="lvFolderList" Grid.Column="0" Grid.Row="1"></ListView>
+                <ListView x:Name="lvSizeList" Grid.Column="1" Grid.Row="1"></ListView>
+                <ListView x:Name="lvDateList" Grid.Column="2" Grid.Row="1"></ListView>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnCalculateSize" Grid.Column="0">Calculate Size</Button>
+                <Label Grid.Column="1">Total Size</Label>
+                <Label x:Name="lblTotalSize" Grid.Column="2"></Label>
             </Grid>
         </StackPanel>
     </Border>
