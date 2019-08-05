@@ -28,7 +28,7 @@ namespace FPropList
             InitializeComponent();
             this.txtFolderPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            lvFolderList.ItemsSource = GetFileList(this.txtFolderPath.Text);
+            LoadFoderFileList(GetCleanFilesList(GetFileList(this.txtFolderPath.Text), this.txtFolderPath.Text));
         }
 
         private void BtnBrowse_Click(object sender, RoutedEventArgs e)
@@ -39,12 +39,58 @@ namespace FPropList
             folderDialog.ShowDialog();
 
             this.txtFolderPath.Text = folderDialog.SelectedPath;
+
+            LoadFoderFileList(GetCleanFilesList(GetFileList(this.txtFolderPath.Text), this.txtFolderPath.Text));
+
         }
 
 
         private string[] GetFileList(string folderPath)
         {
-            return Directory.GetDirectories(folderPath);
+            string[] filesList = Directory.GetDirectories(folderPath);
+            filesList = filesList.Concat(Directory.GetFiles(folderPath)).ToArray();
+            return filesList;
+        }
+
+        private string GetFolderSize(string folderPath)
+        {
+            string[] allFiles = Directory.GetFiles(folderPath, "*", SearchOption.AllDirectories);
+            long totalSize = allFiles.Select(x => new FileInfo(x).Length).Sum();
+            return GetReadableSize(totalSize);
+        }
+
+        private string[] GetCleanFilesList(string[] dirtyFilesList, string folderPath)
+        {
+            return dirtyFilesList.Select(x => x.Substring(folderPath.Length + 1)).ToArray();
+        }
+
+
+        private void LoadFoderFileList(string[] filesList)
+        {
+            lvFolderList.ItemsSource = filesList;
+        }
+
+
+
+        private string GetReadableSize(long fileSize)
+        {
+            if (fileSize >= 1024 * 1024 * 1024)
+            {
+                return $"{fileSize / (1024 * 1024 * 1024)}GB";
+            }
+            else if (fileSize >= 1024 * 1024)
+            {
+                return $"{fileSize / (1024 * 1024)}MB";
+            }
+            else if (fileSize >= 1024)
+            {
+                return $"{fileSize / (1024)}KB";
+            }
+            else
+            {
+                return "0KB";
+            }
+
         }
 
     }
