@@ -13,3 +13,17 @@ G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.GenerateRe
 G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.CoreCompileInputs.cache
 G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.exe
 G:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.pdb
+D:\Applications\cSharp\FPropList\FPropList\bin\Debug\FPropList.exe.config
+D:\Applications\cSharp\FPropList\FPropList\bin\Debug\FPropList.exe
+D:\Applications\cSharp\FPropList\FPropList\bin\Debug\FPropList.pdb
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\MainWindow.g.cs
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\App.g.cs
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList_MarkupCompile.cache
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList_MarkupCompile.lref
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\MainWindow.baml
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.g.resources
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.Properties.Resources.resources
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.GenerateResource.cache
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.CoreCompileInputs.cache
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.exe
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.pdb

@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using FPropList.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,12 +24,17 @@ namespace FPropList
     /// </summary>
     public partial class MainWindow : Window
     {
+        FileFunc fileFunctions = null;
         public MainWindow()
         {
             InitializeComponent();
+
             this.txtFolderPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            LoadFoderFileList(GetCleanFilesList(GetFileList(this.txtFolderPath.Text), this.txtFolderPath.Text));
+            fileFunctions = new FileFunc();
+
+            UpdateFileFolderList();
+
         }
 
         private void BtnBrowse_Click(object sender, RoutedEventArgs e)
@@ -38,60 +44,23 @@ namespace FPropList
             folderDialog.ShowNewFolderButton = false;
             folderDialog.ShowDialog();
 
+            if (string.IsNullOrWhiteSpace(folderDialog.SelectedPath))
+                return;
+
             this.txtFolderPath.Text = folderDialog.SelectedPath;
 
-            LoadFoderFileList(GetCleanFilesList(GetFileList(this.txtFolderPath.Text), this.txtFolderPath.Text));
+            UpdateFileFolderList();
 
         }
 
-
-        private string[] GetFileList(string folderPath)
+        private void UpdateFileFolderList()
         {
-            string[] filesList = Directory.GetDirectories(folderPath);
-            filesList = filesList.Concat(Directory.GetFiles(folderPath)).ToArray();
-            return filesList;
-        }
+            listView.ItemsSource = fileFunctions.GetFileList(this.txtFolderPath.Text);
 
-        private string GetFolderSize(string folderPath)
-        {
-            string[] allFiles = Directory.GetFiles(folderPath, "*", SearchOption.AllDirectories);
-            long totalSize = allFiles.Select(x => new FileInfo(x).Length).Sum();
-            return GetReadableSize(totalSize);
-        }
-
-        private string[] GetCleanFilesList(string[] dirtyFilesList, string folderPath)
-        {
-            return dirtyFilesList.Select(x => x.Substring(folderPath.Length + 1)).ToArray();
+            lblTotalSize.Content = fileFunctions.GetFolderTotalSize();
         }
 
 
-        private void LoadFoderFileList(string[] filesList)
-        {
-            lvFolderList.ItemsSource = filesList;
-        }
-
-
-
-        private string GetReadableSize(long fileSize)
-        {
-            if (fileSize >= 1024 * 1024 * 1024)
-            {
-                return $"{fileSize / (1024 * 1024 * 1024)}GB";
-            }
-            else if (fileSize >= 1024 * 1024)
-            {
-                return $"{fileSize / (1024 * 1024)}MB";
-            }
-            else if (fileSize >= 1024)
-            {
-                return $"{fileSize / (1024)}KB";
-            }
-            else
-            {
-                return "0KB";
-            }
-
-        }
 
     }
 }

@@ -5,48 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FPropList"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Border>
-        <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0">Current Folder</TextBlock>
-                <TextBox Grid.Column="1" x:Name="txtFolderPath"></TextBox>
-                <Button Grid.Column="2" x:Name="btnBrowse" Click="BtnBrowse_Click">Browse</Button>
+        Title="FPropList" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Content="Current Folder"
+                   Background="LightCyan"/>
+            <TextBox Grid.Column="1" 
+                     Margin="5,0,10,0"
+                     x:Name="txtFolderPath"
+                     VerticalContentAlignment="Center"/>
+            <Button Grid.Column="2"
+                    Content="Browse" 
+                    Background="LightPink" 
+                    ToolTip="Click here" 
+                    Foreground="DarkGreen"
+                    FontWeight="Bold" 
+                    Cursor="Hand"
+                    x:Name="btnBrowse"
+                    Click="BtnBrowse_Click"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Margin="8,0,0,0" FontWeight="Bold" Content="Item Name"/>
+            <Label Grid.Column="1" FontWeight="Bold" Content="Size"/>
+            <Label Grid.Column="2" FontWeight="Bold" Content="Modified Date" />
+        </Grid>
+        <ListView x:Name="listView" Background="PaleGoldenrod" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.CanContentScroll="False" 
+                  Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Width="Auto">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{Binding Name}"/>
+                            <Label Grid.Column="1" Margin="15,0,0,0" Content="{Binding Size}"/>
+                            <Label Grid.Column="2" Margin="0,0,5,0" Content="{Binding ModifiedDate}" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Total Size" Grid.Column="0" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblTotalSize" Grid.Column="1" FontWeight="Bold"/>
+        </Grid>
 
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0">Item Name</Label>
-                <Label Grid.Column="1" Grid.Row="0">Size</Label>
-                <Label Grid.Column="2" Grid.Row="0">Modified Date</Label>
-                <ListView x:Name="lvFolderList" Grid.Column="0" Grid.Row="1"></ListView>
-                <ListView x:Name="lvSizeList" Grid.Column="1" Grid.Row="1"></ListView>
-                <ListView x:Name="lvDateList" Grid.Column="2" Grid.Row="1"></ListView>
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="btnCalculateSize" Grid.Column="0">Calculate Size</Button>
-                <Label Grid.Column="1">Total Size</Label>
-                <Label x:Name="lblTotalSize" Grid.Column="2"></Label>
-            </Grid>
-        </StackPanel>
-    </Border>
-    
+
+    </Grid>
 </Window>
