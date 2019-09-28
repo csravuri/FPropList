@@ -29,7 +29,7 @@ namespace FPropList
         {
             InitializeComponent();
 
-            this.txtFolderPath.Text = "D:\\rufus_files"; // Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            this.txtFolderPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             _fileFunctions = new FileFunc();
 

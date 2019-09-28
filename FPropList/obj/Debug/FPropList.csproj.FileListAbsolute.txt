@@ -27,3 +27,4 @@ D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.GenerateRe
 D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csproj.CoreCompileInputs.cache
 D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.exe
 D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.pdb
+D:\Applications\cSharp\FPropList\FPropList\obj\Debug\FPropList.csprojAssemblyReference.cache
