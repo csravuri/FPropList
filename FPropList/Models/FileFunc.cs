@@ -16,12 +16,14 @@ namespace FPropList.Models
 
             foreach (string eachFolder in Directory.GetDirectories(folderPath))
             {
+                long rawSize;
                 fileProps.Add(new FileProp()
                 {
                     FullPath = eachFolder,
                     IsFile = false,
                     Name = GetCleanFileName(eachFolder, folderPath),
-                    Size = GetFolderSize(eachFolder),
+                    Size = GetFolderSize(eachFolder, out rawSize),
+                    RawSize = rawSize,
                     ModifiedDate = Directory.GetLastWriteTime(eachFolder).ToString(GetDefaultDateFormat())
                     
                 });
@@ -36,6 +38,7 @@ namespace FPropList.Models
                     IsFile = true,
                     Name = GetCleanFileName(eachFile, folderPath),
                     Size = GetReadableSize(fileInfo.Length),
+                    RawSize = fileInfo.Length,
                     ModifiedDate = fileInfo.LastWriteTime.ToString(GetDefaultDateFormat())
                     
                 });
@@ -48,15 +51,19 @@ namespace FPropList.Models
 
         private string GetCleanFileName(string fullPath, string folderPath)
         {
-            return fullPath.Substring(folderPath.Length + 1);
+            if(folderPath.EndsWith("\\"))
+                return fullPath.Substring(folderPath.Length);
+            else
+                return fullPath.Substring(folderPath.Length + 1);
         }
 
-        private string GetFolderSize(string folderPath)
+        private string GetFolderSize(string folderPath, out long rawFileSize)
         {
+            rawFileSize = 0;
             try
             {
                 string[] allFiles = Directory.GetFiles(folderPath, "*", SearchOption.AllDirectories);
-                long totalSize = allFiles.Select(x => new FileInfo(x).Length).Sum();
+                long totalSize = rawFileSize = allFiles.Select(x => new FileInfo(x).Length).Sum();
                 _totalFolderSize += totalSize;
                 return GetReadableSize(totalSize);
             }
@@ -95,6 +102,10 @@ namespace FPropList.Models
             return GetReadableSize(_totalFolderSize);
         }
 
+        public void ResetFolderTotalSize()
+        {
+            _totalFolderSize = 0;
+        }
         private string GetDefaultDateFormat()
         {
             return "dd-MM-yyyy HH:mm:ss";

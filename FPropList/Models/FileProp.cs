@@ -12,6 +12,7 @@ namespace FPropList.Models
         public bool IsFile { get; set; }
         public string FullPath { get; set; }
         public string Size { get; set; }
+        public long RawSize { get; set; }
         public string ModifiedDate { get; set; }
 
     }
