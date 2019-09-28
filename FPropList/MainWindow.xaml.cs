@@ -29,7 +29,7 @@ namespace FPropList
         {
             InitializeComponent();
 
-            this.txtFolderPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            this.txtFolderPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             _fileFunctions = new FileFunc();
 
